@@ -343,7 +343,7 @@ async def on_voice_state_update(member: discord.Member, before: discord.VoiceSta
 async def on_ready():
     await bot.change_presence(
         status=discord.Status.dnd,
-        activity=discord.Activity(type=discord.ActivityType.watching, name="discord.gg/owoplace 🍀"),
+        activity=discord.Activity(type=discord.ActivityType.watching, name="discord.gg/luckyweave 🍀"),
     )
 
     # Check and leave unauthorized servers
