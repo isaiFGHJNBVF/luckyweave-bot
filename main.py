@@ -83,7 +83,7 @@ async def join_target_vc():
     try:
         if vc is None:
             # Not in any channel, connect directly
-            await vc_channel.connect(reconnect=True, timeout=15.0, self_deaf=True)
+            await vc_channel.connect(reconnect=True, timeout=15.0, self_mute=True, self_deaf=False)
             print(f"[VC] Connected to {vc_channel.name} ({vc_channel.id})")
         elif not vc.is_connected():
             # Voice client exists but is disconnected/stale
@@ -92,7 +92,7 @@ async def join_target_vc():
             except Exception:
                 pass
             await asyncio.sleep(1)
-            await vc_channel.connect(reconnect=True, timeout=15.0, self_deaf=True)
+            await vc_channel.connect(reconnect=True, timeout=15.0, self_mute=True, self_deaf=False)
             print(f"[VC] Reconnected to {vc_channel.name} ({vc_channel.id})")
         elif vc.channel.id != VOICE_CHANNEL_ID:
             # In a different VC (e.g. dragged by a user/admin), move back
